@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky Dangle — Charm Gallery</title>
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <div class="app-window">
+    <header class="gallery-header">
+      <div class="brand">
+        <span class="logo-icon">🧿</span>
+        <div>
+          <h1 class="brand-title">Lucky Dangle</h1>
+          <p class="brand-sub">A lucky charm for your screen</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btn-toggle-dangle" class="action-btn" title="Toggle charm on/off screen (Ctrl+D)">
+          <span class="btn-icon">🪟</span> <span id="toggle-label">Hide Charm</span>
+        </button>
+        <button id="btn-ritual-quick" class="action-btn primary" title="Perform charm ritual (Ctrl+S)">
+          <span class="btn-icon">✨</span> Perform Ritual
+        </button>
+      </div>
+    </header>
+
+    <main class="gallery-content">
+      <section class="section-intro">
+        <h2>Choose your charm</h2>
+        <p>Each one comes from a tradition around the world, with a small ritual of its own. Select a charm to hang it from the top of your screen.</p>
+      </section>
+
+      <!-- Emoji customizer bar -->
+      <div class="custom-emoji-bar">
+        <div class="emoji-info">
+          <span class="emoji-preview" id="current-emoji-preview">🍀</span>
+          <div>
+            <strong>Personal Lucky Emoji</strong>
+            <p>Pick any emoji or type one below to hang it with lucky beads.</p>
+          </div>
+        </div>
+        <div class="emoji-input-group">
+          <input type="text" id="emoji-input" maxlength="4" value="🍀" placeholder="Emoji">
+          <button id="btn-apply-emoji" class="pill-btn">Hang Emoji</button>
+        </div>
+        <div class="emoji-quick-picks">
+          <button class="emoji-quick" data-emoji="🍀">🍀</button>
+          <button class="emoji-quick" data-emoji="🧿">🧿</button>
+          <button class="emoji-quick" data-emoji="🪬">🪬</button>
+          <button class="emoji-quick" data-emoji="🕉️">🕉️</button>
+          <button class="emoji-quick" data-emoji="🐱">🐱</button>
+          <button class="emoji-quick" data-emoji="✨">✨</button>
+          <button class="emoji-quick" data-emoji="🪷">🪷</button>
+          <button class="emoji-quick" data-emoji="🌸">🌸</button>
+          <button class="emoji-quick" data-emoji="💎">💎</button>
+        </div>
+      </div>
+
+      <!-- Charms Grid -->
+      <div class="charms-grid" id="charms-grid">
+        <!-- Rendered dynamically from charms.js -->
+      </div>
+    </main>
+
+    <footer class="gallery-footer">
+      <div class="shortcuts-hint">
+        <span>Shortcuts: <kbd>Ctrl+D</kbd> Toggle Dangle · <kbd>Ctrl+S</kbd> Perform Ritual</span>
+      </div>
+      <div class="footer-meta">
+        <span>Lucky Dangle for Windows Laptop · Offline Standalone App</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="charms.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>

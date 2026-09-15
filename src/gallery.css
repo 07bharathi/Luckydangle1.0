@@ -1,0 +1,401 @@
+/* gallery.css - Editorial styling for Lucky Dangle Gallery & Settings */
+
+:root {
+  --bg: #0f1322;
+  --card-bg: #171d30;
+  --card-border: #283049;
+  --card-hover: #1f2742;
+  --ink: #e9edf8;
+  --muted: #9aa3bd;
+  --accent: #d8a844;
+  --accent-hover: #f0ca5d;
+  --accent-bg: #3a5ae0;
+  --accent-btn: #2b49cb;
+  --gold-gradient: linear-gradient(108deg, #76500d 0%, #b78319 18%, #f2cf67 31%, #fff4bd 39%, #c28b1d 51%, #f0ca5d 68%, #9b6a12 84%, #e3b744 100%);
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow-x: hidden;
+}
+
+.app-window {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  background: rgba(23, 29, 48, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--card-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-icon {
+  font-size: 32px;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-sub {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: var(--card-hover);
+  border-color: #3e4b70;
+}
+
+.action-btn.primary {
+  background: var(--accent-btn);
+  border-color: #4b6bee;
+  color: #ffffff;
+}
+
+.action-btn.primary:hover {
+  background: #3957dd;
+  box-shadow: 0 2px 10px rgba(58, 90, 224, 0.4);
+}
+
+/* Main Content */
+.gallery-content {
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  width: 100%;
+}
+
+.section-intro {
+  margin-bottom: 28px;
+}
+
+.section-intro h2 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.section-intro p {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 640px;
+}
+
+/* Custom Emoji Bar */
+.custom-emoji-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 32px;
+}
+
+.emoji-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.emoji-preview {
+  font-size: 34px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+
+.emoji-info strong {
+  font-size: 15px;
+  display: block;
+}
+
+.emoji-info p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.emoji-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.emoji-input-group input {
+  width: 60px;
+  height: 38px;
+  text-align: center;
+  font-size: 20px;
+  background: #0d101a;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+}
+
+.emoji-input-group input:focus {
+  border-color: var(--accent);
+}
+
+.pill-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #d8a844;
+  background: rgba(216, 168, 68, 0.15);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn:hover {
+  background: var(--accent);
+  color: #0f1322;
+}
+
+.emoji-quick-picks {
+  display: flex;
+  gap: 6px;
+}
+
+.emoji-quick {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  font-size: 18px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.emoji-quick:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Charms Grid */
+.charms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.charm-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.charm-card:hover {
+  transform: translateY(-2px);
+  border-color: #3f4d75;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.charm-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 24px rgba(216, 168, 68, 0.15);
+}
+
+.active-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  background: rgba(216, 168, 68, 0.2);
+  color: var(--accent);
+  border-radius: 6px;
+  border: 1px solid rgba(216, 168, 68, 0.4);
+}
+
+.card-art {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.card-img {
+  max-height: 110px;
+  max-width: 110px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45));
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.charm-card:hover .card-img {
+  transform: scale(1.08) rotate(3deg);
+}
+
+.card-emoji-art {
+  font-size: 64px;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45));
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.card-origin {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.card-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--card-border);
+  background: #111524;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.card-btn:hover {
+  background: var(--card-hover);
+  border-color: #4a5985;
+}
+
+.card-btn.hang {
+  background: var(--accent-btn);
+  border-color: #4b6bee;
+  color: #fff;
+}
+
+.card-btn.hang:hover {
+  background: #3957dd;
+}
+
+.charm-card.active .card-btn.hang {
+  background: rgba(216, 168, 68, 0.2);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Footer */
+.gallery-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  border-top: 1px solid var(--card-border);
+  background: rgba(23, 29, 48, 0.5);
+  font-size: 12px;
+  color: var(--muted);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+kbd {
+  background: #283049;
+  border: 1px solid #3c486e;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: 11px;
+  color: #e9edf8;
+}

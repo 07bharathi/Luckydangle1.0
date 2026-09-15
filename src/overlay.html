@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lucky Dangle Overlay</title>
+  <link rel="stylesheet" href="overlay.css">
+</head>
+<body>
+  <div id="dg-container">
+    <svg id="dg-svg">
+      <defs id="dg-defs"></defs>
+      <g id="dg-world">
+        <g id="dg-rope">
+          <path class="dg-cord-base" d="" fill="none"/>
+          <path class="dg-cord-texture" d="" fill="none"/>
+          <path class="dg-cord-stitch" d="" fill="none"/>
+        </g>
+        <g id="dg-garland"></g>
+        <g id="dg-beads"></g>
+        <g id="dg-charm" class="dg-shadow"></g>
+      </g>
+    </svg>
+    <div id="dg-anchor-handle" title="Drag to slide along screen edge"></div>
+    <button id="dg-grab" aria-label="Grab and flick lucky charm"></button>
+    <div id="dg-toast"></div>
+  </div>
+
+  <audio id="dg-sound-ghanta" src="../assets/sounds/ghanta-ring.wav" preload="auto"></audio>
+
+  <script src="charms.js"></script>
+  <script src="physics.js"></script>
+  <script src="overlay.js"></script>
+</body>
+</html>
