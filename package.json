@@ -1,0 +1,43 @@
+{
+  "name": "lucky-dangle",
+  "version": "1.0.0",
+  "description": "Lucky Dangle - A lucky charm for your screen on Windows",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win portable"
+  },
+  "keywords": [
+    "lucky-dangle",
+    "charm",
+    "screen-pet",
+    "desktop-toy",
+    "overlay"
+  ],
+  "author": "Karthik Mahadevan / Lucky Dangle Clone",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^34.5.8",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.luckydangle.app",
+    "productName": "Lucky Dangle",
+    "win": {
+      "target": "portable",
+      "icon": "assets/app-icon.png"
+    },
+    "portable": {
+      "artifactName": "LuckyDangle.exe"
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ]
+  }
+}

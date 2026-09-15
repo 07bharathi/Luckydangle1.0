@@ -1,0 +1,340 @@
+[
+  {
+    "slug": "nazar",
+    "name": "Nazar boncuğu",
+    "origin": "Turkey and the Mediterranean",
+    "description": "A glass eye worn against the evil eye. Give it a flick when you want a little cover.",
+    "ritual": {
+      "kind": "flick",
+      "label": "Give it a flick"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/nazar.png",
+      "frame": [
+        64,
+        64
+      ]
+    },
+    "attach": 0.15,
+    "hangOffset": 22.4,
+    "beads": {
+      "small": "glass:white",
+      "big": "eye",
+      "raise": 0,
+      "bigSize": 12
+    }
+  },
+  {
+    "slug": "hamsa",
+    "name": "Hamsa",
+    "origin": "Middle East and North Africa",
+    "description": "An open hand carried for protection and good fortune. Give it a flick to send bad luck on its way.",
+    "ritual": {
+      "kind": "flick",
+      "label": "Give it a flick"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/hamsa.png",
+      "frame": [
+        64,
+        84
+      ]
+    },
+    "attach": 0.12,
+    "hangOffset": 32,
+    "beads": {
+      "small": "glass:gold",
+      "big": "glass:deepBlue",
+      "raise": 0,
+      "bigSize": 12
+    }
+  },
+  {
+    "slug": "nimbu-mirchi",
+    "name": "Nimbu-mirchi",
+    "origin": "India",
+    "description": "Seven chilies and a lemon hung at the threshold to turn away misfortune. Replace it with a fresh one when the week is up.",
+    "ritual": {
+      "kind": "garland",
+      "label": "Hang a fresh garland"
+    },
+    "art": {
+      "type": "garland"
+    },
+    "attach": 0.5,
+    "hangOffset": 0,
+    "beads": null
+  },
+  {
+    "slug": "ghanta",
+    "name": "Ghanta",
+    "origin": "India",
+    "description": "A bell rung to clear the air and mark a beginning. Ring it when you make a wish, or before something that matters.",
+    "ritual": {
+      "kind": "ghanta",
+      "label": "Ring the bell"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/ghanta.png",
+      "frame": [
+        64,
+        84
+      ]
+    },
+    "attach": 0.073,
+    "hangOffset": 35.9,
+    "cordEnd": {
+      "kind": "tip",
+      "from": [
+        32,
+        5.6
+      ],
+      "to": [
+        32,
+        12.6
+      ]
+    },
+    "beads": {
+      "small": "glass:gold",
+      "big": "glass:lacquerRed",
+      "raise": 0,
+      "bigSize": 12
+    }
+  },
+  {
+    "slug": "drishti-bommai",
+    "name": "Drishti bommai",
+    "origin": "South India",
+    "description": "A fierce guardian painted to meet the first bad glance. Repaint it through seven colors whenever you want a fresh start.",
+    "ritual": {
+      "kind": "drishti",
+      "label": "Repaint the guardian"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/drishti-bommai.png",
+      "frame": [
+        64,
+        84
+      ]
+    },
+    "attach": 0.13,
+    "hangOffset": 31.1,
+    "beads": {
+      "small": "glass:gold",
+      "big": "striped",
+      "raise": 4,
+      "bigSize": 12
+    }
+  },
+  {
+    "slug": "chinese-knot",
+    "name": "Páncháng jié",
+    "origin": "China",
+    "description": "One unbroken red cord tied for good fortune without end. Cinch it gently and let the tassel settle.",
+    "ritual": {
+      "kind": "knot",
+      "label": "Tie in good fortune"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/chinese-knot.png",
+      "frame": [
+        64,
+        84
+      ]
+    },
+    "attach": 0.045,
+    "hangOffset": 38.2,
+    "cordEnd": {
+      "kind": "binding",
+      "center": [
+        32,
+        4.3
+      ]
+    },
+    "beads": {
+      "small": "glass:lacquerRed",
+      "big": "glass:gold",
+      "raise": 0,
+      "bigSize": 12
+    }
+  },
+  {
+    "slug": "daruma",
+    "name": "Daruma",
+    "origin": "Japan",
+    "description": "A wishing doll for goals that take some grit. Paint one eye when you make a wish and the other when it comes true.",
+    "ritual": {
+      "kind": "daruma",
+      "label": "Make a wish"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/daruma.png",
+      "frame": [
+        64,
+        64
+      ]
+    },
+    "attach": 0.14,
+    "hangOffset": 23,
+    "beads": {
+      "small": "glass:gold",
+      "big": "glass:white",
+      "raise": 0,
+      "bigSize": 12
+    }
+  },
+  {
+    "slug": "maneki-neko",
+    "name": "Maneki-neko",
+    "origin": "Japan",
+    "description": "A beckoning cat that invites good fortune in. Call on it and watch its raised paw wave.",
+    "ritual": {
+      "kind": "maneki",
+      "label": "Beckon good fortune"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/maneki-neko.png",
+      "frame": [
+        64,
+        84
+      ]
+    },
+    "attach": 0.13,
+    "hangOffset": 31.1,
+    "beads": {
+      "small": "glass:gold",
+      "big": "glass:lacquerRed",
+      "raise": 4,
+      "bigSize": 12
+    }
+  },
+  {
+    "slug": "horseshoe",
+    "name": "Horseshoe",
+    "origin": "Europe and the Americas",
+    "description": "Hung points up so the luck stays put. A good flick is all this one needs.",
+    "ritual": {
+      "kind": "flick",
+      "label": "Give it a flick"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/horseshoe.png",
+      "frame": [
+        64,
+        84
+      ]
+    },
+    "attach": 0.12,
+    "hangOffset": 31.9,
+    "cordEnd": {
+      "kind": "tip",
+      "from": [
+        32.2,
+        9.7
+      ],
+      "to": [
+        32.2,
+        14.3
+      ]
+    },
+    "beads": {
+      "small": "hexnut",
+      "big": "horsehead",
+      "raise": 0,
+      "bigSize": 20
+    }
+  },
+  {
+    "slug": "scarab",
+    "name": "Scarab",
+    "origin": "Ancient Egypt",
+    "description": "An ancient amulet for renewal and new beginnings. Spread its ceremonial wings for a moment, then let them rest.",
+    "ritual": {
+      "kind": "scarab",
+      "label": "Spread the wings"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/scarab.png",
+      "frame": [
+        140.5,
+        107
+      ]
+    },
+    "attach": 0.184,
+    "hangOffset": 33.8,
+    "cordEnd": {
+      "kind": "tip",
+      "from": [
+        70.25,
+        19.2
+      ],
+      "to": [
+        70.25,
+        25
+      ]
+    },
+    "beads": {
+      "small": "glass:gold",
+      "big": "glass:faience",
+      "raise": 4,
+      "bigSize": 12
+    }
+  },
+  {
+    "slug": "himmeli",
+    "name": "Himmeli",
+    "origin": "Finland",
+    "description": "A rye-straw tradition for inviting abundance, prosperity, and a fruitful flow of work. Set its open geometry turning on an imagined current of air.",
+    "ritual": {
+      "kind": "himmeli",
+      "label": "Set it turning"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/himmeli.png",
+      "frame": [
+        64,
+        84
+      ]
+    },
+    "attach": 0.05,
+    "hangOffset": 37.8,
+    "beads": null
+  },
+  {
+    "slug": "custom",
+    "name": "Emoji",
+    "origin": "Yours",
+    "description": "Choose any emoji and make the ritual your own. Hang the one that feels lucky to you.",
+    "ritual": {
+      "kind": "emoji",
+      "label": "Pick an emoji"
+    },
+    "art": {
+      "type": "emoji",
+      "glyph": "🍀",
+      "frame": [
+        64,
+        64
+      ],
+      "fontSize": 58
+    },
+    "attach": 0.15,
+    "hangOffset": 22.4,
+    "beads": {
+      "small": "glass:white",
+      "big": "emojiTwin",
+      "raise": 0,
+      "bigSize": 14
+    }
+  }
+]
