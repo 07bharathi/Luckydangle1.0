@@ -372,6 +372,11 @@
         physics.flick(25);
         break;
 
+      case "spiderman":
+        physics.flick(35);
+        showToast("Spider-Man swings into action! 🕸️");
+        break;
+
       default:
         physics.flick(26);
         showToast(currentCharm.name + " blessed");

@@ -41,7 +41,8 @@ You can launch Lucky Dangle immediately in any of these ways:
   9. **Horseshoe** (Europe & Americas) — Upright horseshoe with horse-head bead; ritual: flick.
   10. **Scarab** (Ancient Egypt) — Sacred renewal amulet; ritual: golden ceremonial wings opening.
   11. **Himmeli** (Finland) — Rye-straw geometry; ritual: 3D rotating air draft.
-  12. **Custom Emoji** — Hang any emoji (e.g. 🍀, 🧿, 🪬, 🕉️, ✨, 🌸, 🐱, 💎) with lucky beads.
+  12. **Spider-Man** (Queens, New York) — Upside-down dangling web-slinger with custom spider bead; ritual: swing into action.
+  13. **Custom Emoji** — Hang any emoji (e.g. 🍀, 🧿, 🪬, 🕉️, ✨, 🌸, 🐱, 💎) with lucky beads.
 - **Windows System Tray Integration**:
   - Sits in your Windows taskbar system tray (near the clock).
   - Right-click tray icon to quick-switch charms, trigger rituals, toggle visibility, or open the gallery.

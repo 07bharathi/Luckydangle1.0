@@ -311,6 +311,32 @@
     "beads": null
   },
   {
+    "slug": "spiderman",
+    "name": "Spider-Man",
+    "origin": "Queens, New York",
+    "description": "Your friendly neighborhood web-slinger hanging upside down. Give him a flick to swing into action.",
+    "ritual": {
+      "kind": "spiderman",
+      "label": "Swing into action"
+    },
+    "art": {
+      "type": "image",
+      "src": "/charms/spiderman.png",
+      "frame": [
+        64,
+        97
+      ]
+    },
+    "attach": 0.02,
+    "hangOffset": 34,
+    "beads": {
+      "small": "glass:deepBlue",
+      "big": "spider",
+      "raise": 0,
+      "bigSize": 13
+    }
+  },
+  {
     "slug": "custom",
     "name": "Emoji",
     "origin": "Yours",
