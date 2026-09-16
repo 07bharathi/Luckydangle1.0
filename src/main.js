@@ -235,6 +235,11 @@ ipcMain.handle('save-settings', (_event, data) => {
   return saveSettings(data);
 });
 
+ipcMain.on('quit-app', () => {
+  app.isQuitting = true;
+  app.quit();
+});
+
 // App Lifecycle
 app.whenReady().then(() => {
   createOverlayWindow();

@@ -11,6 +11,12 @@
   const worldGroup = document.getElementById("dg-world");
   const grabButton = document.getElementById("dg-grab");
   const anchorHandle = document.getElementById("dg-anchor-handle");
+  const closeAnchorBtn = document.getElementById("dg-close-anchor");
+  const contextMenu = document.getElementById("dg-context-menu");
+  const cmQuit = document.getElementById("dg-cm-quit");
+  const cmToggle = document.getElementById("dg-cm-toggle");
+  const cmGallery = document.getElementById("dg-cm-gallery");
+  const cmRitual = document.getElementById("dg-cm-ritual");
   const toastEl = document.getElementById("dg-toast");
   const ghantaAudio = document.getElementById("dg-sound-ghanta");
 
@@ -80,12 +86,100 @@
 
   grabButton.addEventListener("mouseenter", () => setInteractive(true));
   grabButton.addEventListener("mouseleave", () => {
-    if (!physics.dragging) setInteractive(false);
+    if (!physics.dragging && !contextMenu.classList.contains("visible")) setInteractive(false);
   });
 
-  anchorHandle.addEventListener("mouseenter", () => setInteractive(true));
+  anchorHandle.addEventListener("mouseenter", () => {
+    setInteractive(true);
+    closeAnchorBtn.style.opacity = "1";
+  });
   anchorHandle.addEventListener("mouseleave", () => {
-    if (!physics.dragging) setInteractive(false);
+    setTimeout(() => {
+      if (!closeAnchorBtn.matches(":hover") && !anchorHandle.matches(":hover")) {
+        closeAnchorBtn.style.opacity = "0";
+        if (!physics.dragging && !contextMenu.classList.contains("visible")) setInteractive(false);
+      }
+    }, 50);
+  });
+
+  closeAnchorBtn.addEventListener("mouseenter", () => {
+    setInteractive(true);
+    closeAnchorBtn.style.opacity = "1";
+  });
+  closeAnchorBtn.addEventListener("mouseleave", () => {
+    setTimeout(() => {
+      if (!closeAnchorBtn.matches(":hover") && !anchorHandle.matches(":hover")) {
+        closeAnchorBtn.style.opacity = "0";
+        if (!physics.dragging && !contextMenu.classList.contains("visible")) setInteractive(false);
+      }
+    }, 50);
+  });
+
+  closeAnchorBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (window.electronAPI && window.electronAPI.quitApp) {
+      window.electronAPI.quitApp();
+    }
+  });
+
+  // Context Menu logic
+  function showContextMenu(x, y) {
+    contextMenu.style.left = `${Math.min(x, window.innerWidth - 210)}px`;
+    contextMenu.style.top = `${Math.min(y, window.innerHeight - 180)}px`;
+    contextMenu.classList.add("visible");
+    setInteractive(true);
+  }
+
+  function hideContextMenu() {
+    if (contextMenu.classList.contains("visible")) {
+      contextMenu.classList.remove("visible");
+      if (!isMouseOverInteractive && !physics.dragging) {
+        setInteractive(false);
+      }
+    }
+  }
+
+  grabButton.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    showContextMenu(e.clientX, e.clientY);
+  });
+
+  anchorHandle.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    showContextMenu(e.clientX, e.clientY);
+  });
+
+  cmQuit.addEventListener("click", () => {
+    hideContextMenu();
+    if (window.electronAPI && window.electronAPI.quitApp) {
+      window.electronAPI.quitApp();
+    }
+  });
+
+  cmToggle.addEventListener("click", () => {
+    hideContextMenu();
+    physics.setDangled(!physics.dangled);
+  });
+
+  cmGallery.addEventListener("click", () => {
+    hideContextMenu();
+    if (window.electronAPI && window.electronAPI.openGallery) {
+      window.electronAPI.openGallery();
+    }
+  });
+
+  cmRitual.addEventListener("click", () => {
+    hideContextMenu();
+    performRitual();
+  });
+
+  window.addEventListener("pointerdown", (e) => {
+    if (!contextMenu.contains(e.target) && e.target !== grabButton && e.target !== anchorHandle) {
+      hideContextMenu();
+    }
   });
 
   // Top anchor sliding
@@ -542,9 +636,10 @@
     const grabScreenY = (end.y + physics.hangOffset * Math.cos(endAngle)) * scale;
     grabButton.style.transform = `translate(${(grabScreenX - grabRadius).toFixed(1)}px, ${(grabScreenY - grabRadius).toFixed(1)}px)`;
 
-    // 6. Position Anchor Slide Handle
+    // 6. Position Anchor Slide Handle & Quick Exit Button
     const anchorScreenX = physics.anchorX * scale;
     anchorHandle.style.transform = `translate(${(anchorScreenX - 25).toFixed(1)}px, 0)`;
+    closeAnchorBtn.style.transform = `translate(${(anchorScreenX + 32).toFixed(1)}px, 2px)`;
 
     // Scale root SVG group
     worldGroup.setAttribute("transform", `scale(${scale.toFixed(4)})`);

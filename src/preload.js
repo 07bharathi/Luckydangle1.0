@@ -31,5 +31,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
   },
   onPerformRitual: (callback) => {
     ipcRenderer.on('perform-ritual-event', () => callback());
+  },
+  quitApp: () => {
+    ipcRenderer.send('quit-app');
   }
 });

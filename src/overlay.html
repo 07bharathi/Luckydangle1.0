@@ -21,7 +21,15 @@
       </g>
     </svg>
     <div id="dg-anchor-handle" title="Drag to slide along screen edge"></div>
-    <button id="dg-grab" aria-label="Grab and flick lucky charm"></button>
+    <button id="dg-close-anchor" class="dg-close-anchor" title="Exit Lucky Dangle">✕</button>
+    <button id="dg-grab" aria-label="Grab and flick lucky charm" title="Left click: flick / Right click: options"></button>
+    <div id="dg-context-menu" class="dg-context-menu">
+      <div class="dg-cm-item" id="dg-cm-ritual"><span class="dg-cm-icon">✨</span> Perform Ritual <kbd>Ctrl+S</kbd></div>
+      <div class="dg-cm-item" id="dg-cm-gallery"><span class="dg-cm-icon">🎨</span> Charm Gallery...</div>
+      <div class="dg-cm-item" id="dg-cm-toggle"><span class="dg-cm-icon">🙈</span> Hide Charm <kbd>Ctrl+D</kbd></div>
+      <div class="dg-cm-separator"></div>
+      <div class="dg-cm-item dg-cm-danger" id="dg-cm-quit"><span class="dg-cm-icon">❌</span> Exit App Completely</div>
+    </div>
     <div id="dg-toast"></div>
   </div>
 

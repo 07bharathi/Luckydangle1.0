@@ -121,6 +121,17 @@
     }
   });
 
+  const btnQuitApp = document.getElementById("btn-quit-app");
+  if (btnQuitApp) {
+    btnQuitApp.addEventListener("click", () => {
+      if (window.electronAPI && window.electronAPI.quitApp) {
+        window.electronAPI.quitApp();
+      } else {
+        window.close();
+      }
+    });
+  }
+
   // Sync settings on load
   if (window.electronAPI) {
     window.electronAPI.getSettings().then((settings) => {
