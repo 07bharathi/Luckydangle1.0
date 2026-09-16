@@ -19,3 +19,5 @@ ehthumbs.db
 # IDE & Editor folders
 .vscode/
 .idea/
+
+*.zip
