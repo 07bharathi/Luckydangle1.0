@@ -140,11 +140,22 @@ const CHARMS = [
   },
   {
     slug: "spiderman",
+    name: "Spider-Man Upside Down",
+    origin: "Marvel Universe",
+    description: "Your friendly neighborhood web-slinger hanging upside down by his web. Give him a flick to swing into action.",
+    ritual: { kind: "spiderman", label: "Swing into action" },
+    art: { type: "image", src: "../assets/charms/spiderman-classic.png", frame: [68, 106] },
+    attach: 0.005,
+    hangOffset: 28,
+    beads: { small: "glass:gold", big: "spider", raise: 0, bigSize: 13 }
+  },
+  {
+    slug: "spiderman-gwen",
     name: "Spider-Man & Gwen",
-    origin: "Queens, New York",
+    origin: "Marvel Universe",
     description: "Spider-Man holding his webline with Gwen Stacy. Give him a flick to swing with superhero agility.",
     ritual: { kind: "spiderman", label: "Swing webline" },
-    art: { type: "image", src: "../assets/charms/spiderman.png", frame: [48, 179] },
+    art: { type: "image", src: "../assets/charms/spiderman-gwen.png", frame: [48, 179] },
     attach: 0.005,
     hangOffset: 28,
     beads: { small: "glass:deepBlue", big: "spider", raise: 0, bigSize: 13 }
