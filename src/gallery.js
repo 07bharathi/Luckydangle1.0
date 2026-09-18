@@ -49,21 +49,49 @@
           <span class="card-origin">${c.origin}</span>
           <p class="card-desc">${c.description}</p>
           <div class="card-actions">
-            <button class="card-btn hang" data-slug="${c.slug}">
-              ${isActive ? "✓ Hanging" : "Hang charm"}
-            </button>
-            <button class="card-btn ritual" data-slug="${c.slug}">
-              ${c.ritual.label}
-            </button>
+            ${c.slug === "custom-image" ? `
+              <button class="card-btn upload-image" data-slug="${c.slug}" title="Choose image from your computer">
+                📁 ${activeCustomImage ? "Change Image" : "Upload Image"}
+              </button>
+              <button class="card-btn hang" data-slug="${c.slug}">
+                ${isActive ? "✓ Hanging" : "Hang charm"}
+              </button>
+            ` : `
+              <button class="card-btn hang" data-slug="${c.slug}">
+                ${isActive ? "✓ Hanging" : "Hang charm"}
+              </button>
+              <button class="card-btn ritual" data-slug="${c.slug}">
+                ${c.ritual.label}
+              </button>
+            `}
           </div>
         </article>
       `;
     }).join("");
 
     // Attach card event listeners
+    gridEl.querySelectorAll(".card-btn.upload-image").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (fileInput) fileInput.click();
+      });
+    });
+
+    const customImgArt = gridEl.querySelector('.charm-card[data-slug="custom-image"] .card-art');
+    if (customImgArt) {
+      customImgArt.style.cursor = "pointer";
+      customImgArt.title = "Click to upload an image";
+      customImgArt.addEventListener("click", () => {
+        if (fileInput) fileInput.click();
+      });
+    }
+
     gridEl.querySelectorAll(".card-btn.hang").forEach((btn) => {
       btn.addEventListener("click", () => {
         const slug = btn.dataset.slug;
+        if (slug === "custom-image" && !activeCustomImage) {
+          if (fileInput) fileInput.click();
+          return;
+        }
         selectCharm(slug);
       });
     });
