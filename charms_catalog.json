@@ -328,7 +328,7 @@
       ]
     },
     "attach": 0.005,
-    "hangOffset": 65,
+    "hangOffset": 28,
     "beads": {
       "small": "glass:deepBlue",
       "big": "spider",
@@ -381,7 +381,7 @@
       ]
     },
     "attach": 0.03,
-    "hangOffset": 32,
+    "hangOffset": 28,
     "beads": {
       "small": "glass:gold",
       "big": "glass:deepBlue",

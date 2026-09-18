@@ -146,7 +146,7 @@ const CHARMS = [
     ritual: { kind: "spiderman", label: "Swing webline" },
     art: { type: "image", src: "../assets/charms/spiderman.png", frame: [48, 179] },
     attach: 0.005,
-    hangOffset: 65,
+    hangOffset: 28,
     beads: { small: "glass:deepBlue", big: "spider", raise: 0, bigSize: 13 }
   },
   {
@@ -168,7 +168,7 @@ const CHARMS = [
     ritual: { kind: "flick", label: "Give it a flick" },
     art: { type: "image", src: "", frame: [64, 84] },
     attach: 0.03,
-    hangOffset: 32,
+    hangOffset: 28,
     beads: { small: "glass:gold", big: "glass:deepBlue", raise: 0, bigSize: 12 }
   }
 ];
