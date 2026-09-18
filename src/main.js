@@ -14,7 +14,11 @@ const settingsPath = path.join(app.getPath('userData'), 'settings.json');
 function loadSettings() {
   try {
     if (fs.existsSync(settingsPath)) {
-      return JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+      let raw = fs.readFileSync(settingsPath, 'utf8');
+      if (raw.charCodeAt(0) === 0xFEFF) {
+        raw = raw.slice(1);
+      }
+      return JSON.parse(raw.trim());
     }
   } catch (e) {
     console.error('Error loading settings:', e);
