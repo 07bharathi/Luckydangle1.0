@@ -61,6 +61,25 @@
         </div>
       </div>
 
+      <!-- Custom Image Upload Bar -->
+      <div class="custom-image-bar">
+        <div class="image-upload-info">
+          <div class="image-preview-box" id="custom-img-preview-box">
+            <span id="custom-img-icon">🖼️</span>
+            <img id="custom-img-thumb" src="" alt="Preview" style="display:none;"/>
+          </div>
+          <div>
+            <strong>Upload Custom Image Charm</strong>
+            <p>Select any picture from your PC (.png, .jpg, .webp) to hang it as your custom screen charm.</p>
+          </div>
+        </div>
+        <div class="image-upload-controls">
+          <input type="file" id="image-file-input" accept="image/*" style="display: none;">
+          <button id="btn-browse-image" class="pill-btn secondary">📁 Choose Image...</button>
+          <button id="btn-hang-image" class="pill-btn" style="display: none;">✓ Hang Image</button>
+        </div>
+      </div>
+
       <!-- Charms Grid -->
       <div class="charms-grid" id="charms-grid">
         <!-- Rendered dynamically from charms.js -->

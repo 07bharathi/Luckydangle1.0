@@ -49,7 +49,7 @@ function createOverlayWindow() {
     x: 0,
     y: 0,
     width: width,
-    height: Math.min(height, 560), // Top zone of the screen where charm hangs
+    height: Math.min(height, 760), // Screen zone where charms hang and swing
     transparent: true,
     frame: false,
     alwaysOnTop: true,
@@ -209,7 +209,12 @@ ipcMain.on('open-gallery', () => {
 });
 
 ipcMain.on('select-charm', (_event, data) => {
-  saveSettings({ slug: data.slug, emoji: data.emoji });
+  saveSettings({
+    slug: data.slug,
+    emoji: data.emoji,
+    customImage: data.customImage,
+    customImageAspect: data.customImageAspect
+  });
   if (overlayWindow) {
     overlayWindow.webContents.send('charm-changed', data);
   }

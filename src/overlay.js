@@ -31,6 +31,8 @@
   // App State
   let currentSlug = "nazar";
   let customEmoji = "🍀";
+  let customImage = "";
+  let customImageAspect = 1.0;
   let currentCharm = CHARMS.find((c) => c.slug === currentSlug) || CHARMS[0];
   let darumaState = 0; // 0: blank, 1: one eye, 2: two eyes
   let drishtiColorIndex = 0;
@@ -369,6 +371,21 @@
             <image href="${currentCharm.art.src}" x="${(-w / 2).toFixed(1)}" y="${(-currentCharm.attach * h).toFixed(1)}" width="${w}" height="${h}"/>
           </g>
         `;
+      } else if (currentCharm.slug === "custom-image") {
+        const aspect = customImageAspect || 1.0;
+        let w = 64;
+        let h = Math.round(w / aspect);
+        if (h > 150) {
+          h = 150;
+          w = Math.round(h * aspect);
+        } else if (h < 40) {
+          h = 40;
+          w = Math.round(h * aspect);
+        }
+        physics.hangOffset = Math.round(h * 0.45);
+        charmGroup.innerHTML = `
+          <image href="${customImage || '../assets/app-icon.png'}" x="${(-w / 2).toFixed(1)}" y="${(-currentCharm.attach * h).toFixed(1)}" width="${w}" height="${h}"/>
+        `;
       } else {
         // Standard image charms (Nazar, Hamsa, Horseshoe)
         const [w, h] = currentCharm.art.frame;
@@ -672,6 +689,8 @@
       window.electronAPI.saveSettings({
         slug: currentSlug,
         emoji: customEmoji,
+        customImage: customImage,
+        customImageAspect: customImageAspect,
         anchorXRatio: physics.anchorX / (window.innerWidth / scale),
         darumaState: darumaState,
         drishtiColorIndex: drishtiColorIndex
@@ -680,12 +699,14 @@
   }
 
   // Change Charm
-  function setCharm(slug, emoji) {
+  function setCharm(slug, emoji, img, aspect) {
     const found = CHARMS.find((c) => c.slug === slug);
     if (!found) return;
     currentSlug = slug;
     currentCharm = found;
     if (emoji) customEmoji = emoji;
+    if (img) customImage = img;
+    if (aspect) customImageAspect = aspect;
     buildCharmVisuals();
     physics.flick(24);
     saveCurrentSettings();
@@ -694,7 +715,7 @@
   // IPC Event Listeners from Main Process (Tray / Shortcuts / Gallery)
   if (window.electronAPI) {
     window.electronAPI.onCharmChanged((data) => {
-      setCharm(data.slug, data.emoji);
+      setCharm(data.slug, data.emoji, data.customImage, data.customImageAspect);
     });
 
     window.electronAPI.onToggleDangle(() => {
@@ -714,6 +735,8 @@
       if (settings) {
         if (settings.slug) currentSlug = settings.slug;
         if (settings.emoji) customEmoji = settings.emoji;
+        if (settings.customImage) customImage = settings.customImage;
+        if (typeof settings.customImageAspect === "number") customImageAspect = settings.customImageAspect;
         if (typeof settings.darumaState === "number") darumaState = settings.darumaState;
         if (typeof settings.drishtiColorIndex === "number") drishtiColorIndex = settings.drishtiColorIndex;
         if (typeof settings.anchorXRatio === "number") {

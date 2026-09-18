@@ -8,9 +8,16 @@
   const btnToggleDangle = document.getElementById("btn-toggle-dangle");
   const toggleLabel = document.getElementById("toggle-label");
   const btnRitualQuick = document.getElementById("btn-ritual-quick");
+  const fileInput = document.getElementById("image-file-input");
+  const btnBrowseImage = document.getElementById("btn-browse-image");
+  const btnHangImage = document.getElementById("btn-hang-image");
+  const customImgThumb = document.getElementById("custom-img-thumb");
+  const customImgIcon = document.getElementById("custom-img-icon");
 
   let activeSlug = "nazar";
   let activeEmoji = "🍀";
+  let activeCustomImage = "";
+  let activeCustomImageAspect = 1.0;
   let isDangled = true;
 
   function renderGrid() {
@@ -20,6 +27,10 @@
 
       if (c.slug === "custom") {
         artContent = `<div class="card-emoji-art">${activeEmoji}</div>`;
+      } else if (c.slug === "custom-image") {
+        artContent = activeCustomImage
+          ? `<img class="card-img" src="${activeCustomImage}" alt="${c.name}"/>`
+          : `<div class="card-emoji-art">🖼️</div>`;
       } else if (c.art.type === "garland") {
         artContent = `<img class="card-img" src="../assets/charms/nimbu-lemon.png" alt="${c.name}"/>`;
       } else if (c.art.type === "compound") {
@@ -72,13 +83,52 @@
     });
   }
 
-  function selectCharm(slug, emoji = activeEmoji) {
+  function selectCharm(slug, emoji = activeEmoji, customImg = activeCustomImage, aspect = activeCustomImageAspect) {
     activeSlug = slug;
     if (emoji) activeEmoji = emoji;
+    if (customImg) activeCustomImage = customImg;
+    if (aspect) activeCustomImageAspect = aspect;
     if (window.electronAPI) {
-      window.electronAPI.selectCharm(slug, emoji);
+      window.electronAPI.selectCharm(slug, activeEmoji, activeCustomImage, activeCustomImageAspect);
     }
     renderGrid();
+  }
+
+  // Custom Image File Picker
+  if (btnBrowseImage && fileInput) {
+    btnBrowseImage.addEventListener("click", () => {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const dataUrl = event.target.result;
+        const img = new Image();
+        img.onload = () => {
+          activeCustomImage = dataUrl;
+          activeCustomImageAspect = img.naturalWidth / img.naturalHeight;
+          customImgThumb.src = dataUrl;
+          customImgThumb.style.display = "block";
+          customImgIcon.style.display = "none";
+          btnHangImage.style.display = "inline-flex";
+          selectCharm("custom-image", null, activeCustomImage, activeCustomImageAspect);
+        };
+        img.src = dataUrl;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    if (btnHangImage) {
+      btnHangImage.addEventListener("click", () => {
+        if (activeCustomImage) {
+          selectCharm("custom-image", null, activeCustomImage, activeCustomImageAspect);
+        }
+      });
+    }
   }
 
   // Quick Emoji Pickers
@@ -142,6 +192,16 @@
           emojiInput.value = activeEmoji;
           emojiPreview.textContent = activeEmoji;
         }
+        if (settings.customImage) {
+          activeCustomImage = settings.customImage;
+          customImgThumb.src = activeCustomImage;
+          customImgThumb.style.display = "block";
+          customImgIcon.style.display = "none";
+          btnHangImage.style.display = "inline-flex";
+        }
+        if (typeof settings.customImageAspect === "number") {
+          activeCustomImageAspect = settings.customImageAspect;
+        }
       }
       renderGrid();
     });
@@ -152,6 +212,16 @@
         activeEmoji = data.emoji;
         emojiInput.value = activeEmoji;
         emojiPreview.textContent = activeEmoji;
+      }
+      if (data.customImage) {
+        activeCustomImage = data.customImage;
+        customImgThumb.src = activeCustomImage;
+        customImgThumb.style.display = "block";
+        customImgIcon.style.display = "none";
+        btnHangImage.style.display = "inline-flex";
+      }
+      if (typeof data.customImageAspect === "number") {
+        activeCustomImageAspect = data.customImageAspect;
       }
       renderGrid();
     });

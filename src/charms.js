@@ -140,13 +140,13 @@ const CHARMS = [
   },
   {
     slug: "spiderman",
-    name: "Spider-Man",
+    name: "Spider-Man & Gwen",
     origin: "Queens, New York",
-    description: "Your friendly neighborhood web-slinger hanging upside down. Give him a flick to swing into action.",
-    ritual: { kind: "spiderman", label: "Swing into action" },
-    art: { type: "image", src: "../assets/charms/spiderman.png", frame: [64, 97] },
-    attach: 0.02,
-    hangOffset: 34,
+    description: "Spider-Man holding his webline with Gwen Stacy. Give him a flick to swing with superhero agility.",
+    ritual: { kind: "spiderman", label: "Swing webline" },
+    art: { type: "image", src: "../assets/charms/spiderman.png", frame: [48, 179] },
+    attach: 0.005,
+    hangOffset: 65,
     beads: { small: "glass:deepBlue", big: "spider", raise: 0, bigSize: 13 }
   },
   {
@@ -159,6 +159,17 @@ const CHARMS = [
     attach: 0.15,
     hangOffset: 22.4,
     beads: { small: "glass:white", big: "emojiTwin", raise: 0, bigSize: 14 }
+  },
+  {
+    slug: "custom-image",
+    name: "Custom Image",
+    origin: "Your Device",
+    description: "Your own uploaded image hanging with lucky beads. Choose any photo or art you love.",
+    ritual: { kind: "flick", label: "Give it a flick" },
+    art: { type: "image", src: "", frame: [64, 84] },
+    attach: 0.03,
+    hangOffset: 32,
+    beads: { small: "glass:gold", big: "glass:deepBlue", raise: 0, bigSize: 12 }
   }
 ];
 

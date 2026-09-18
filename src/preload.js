@@ -14,8 +14,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
   saveSettings: (settings) => {
     return ipcRenderer.invoke('save-settings', settings);
   },
-  selectCharm: (slug, emoji) => {
-    ipcRenderer.send('select-charm', { slug, emoji });
+  selectCharm: (slug, emoji, customImage, customImageAspect) => {
+    ipcRenderer.send('select-charm', { slug, emoji, customImage, customImageAspect });
   },
   triggerRitual: () => {
     ipcRenderer.send('trigger-ritual');
