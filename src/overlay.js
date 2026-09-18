@@ -9,6 +9,7 @@
   const beadsGroup = document.getElementById("dg-beads");
   const charmGroup = document.getElementById("dg-charm");
   const worldGroup = document.getElementById("dg-world");
+  const webAnchorEl = document.getElementById("dg-web-anchor");
   const grabButton = document.getElementById("dg-grab");
   const anchorHandle = document.getElementById("dg-anchor-handle");
   const closeAnchorBtn = document.getElementById("dg-close-anchor");
@@ -268,6 +269,18 @@
   // Render Charm Elements
   function buildCharmVisuals() {
     physics.hangOffset = currentCharm.hangOffset;
+
+    // Web cord styling
+    const isWeb = currentCharm.cord === "web" || (currentCharm.slug && currentCharm.slug.startsWith("spiderman"));
+    if (isWeb) {
+      ropeGroup.classList.add("dg-cord-web");
+      container.classList.add("is-web");
+      if (webAnchorEl) webAnchorEl.style.display = "block";
+    } else {
+      ropeGroup.classList.remove("dg-cord-web");
+      container.classList.remove("is-web");
+      if (webAnchorEl) webAnchorEl.style.display = "none";
+    }
 
     // 1. Beads
     if (currentCharm.beads) {
@@ -608,6 +621,10 @@
     pathD += ` L ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
 
     ropePaths.forEach((path) => path.setAttribute("d", pathD));
+
+    if (webAnchorEl && (currentCharm.cord === "web" || (currentCharm.slug && currentCharm.slug.startsWith("spiderman")))) {
+      webAnchorEl.setAttribute("transform", `translate(${pts[0].x.toFixed(2)} ${pts[0].y.toFixed(2)})`);
+    }
 
     // 2. Position Beads along cord stations
     if (currentCharm.beads) {

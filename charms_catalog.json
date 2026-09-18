@@ -327,14 +327,10 @@
         106
       ]
     },
+    "cord": "web",
     "attach": 0.005,
     "hangOffset": 28,
-    "beads": {
-      "small": "glass:gold",
-      "big": "spider",
-      "raise": 0,
-      "bigSize": 13
-    }
+    "beads": null
   },
   {
     "slug": "spiderman-gwen",
@@ -353,14 +349,10 @@
         179
       ]
     },
+    "cord": "web",
     "attach": 0.005,
     "hangOffset": 28,
-    "beads": {
-      "small": "glass:deepBlue",
-      "big": "spider",
-      "raise": 0,
-      "bigSize": 13
-    }
+    "beads": null
   },
   {
     "slug": "custom",

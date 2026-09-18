@@ -29,6 +29,11 @@ html, body {
 }
 
 /* Cord rendering */
+.dg-cord-glow,
+.dg-cord-spiral {
+  display: none;
+}
+
 .dg-cord-base {
   stroke: #5a3c19;
   stroke-width: 2.2px;
@@ -50,6 +55,52 @@ html, body {
   stroke-linejoin: round;
   stroke-opacity: 0.45;
   stroke-dasharray: 2 6 1.5 8;
+}
+
+/* Spider Web Cord Rendering */
+.dg-web-anchor path {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 6px rgba(180, 220, 255, 0.6));
+}
+
+#dg-rope.dg-cord-web .dg-cord-glow {
+  display: block;
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 4.2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 8px rgba(160, 215, 255, 0.65));
+}
+
+#dg-rope.dg-cord-web .dg-cord-base {
+  stroke: #ffffff;
+  stroke-width: 2.2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#dg-rope.dg-cord-web .dg-cord-texture {
+  stroke: #f2f7ff;
+  stroke-width: 1.3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 8 2 14 3;
+}
+
+#dg-rope.dg-cord-web .dg-cord-stitch {
+  stroke: rgba(215, 235, 255, 0.9);
+  stroke-width: 0.8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 3 6 4 8;
+}
+
+#dg-rope.dg-cord-web .dg-cord-spiral {
+  display: block;
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 0.7px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2 5 1 6;
 }
 
 /* Drop shadows */
@@ -111,6 +162,11 @@ html, body {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   transition: background 0.2s, height 0.2s;
+}
+
+.is-web #dg-anchor-handle::after {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 #dg-anchor-handle:hover::after {
